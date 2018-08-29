@@ -189,6 +189,10 @@
                                     Click="ServerMetricsContextMenu_Click"
                                     CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}"
                                     Header="Get Metrics" />
+                                <MenuItem
+                                    Click="ServerConsoleContextMenu_Click"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}"
+                                    Header="Get Console" />
                             </ContextMenu>
                         </DataGrid.ContextMenu>
 

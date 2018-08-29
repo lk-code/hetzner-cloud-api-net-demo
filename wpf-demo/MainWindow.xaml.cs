@@ -846,5 +846,31 @@ namespace wpf_demo
 
             win.Show();
         }
+
+        private async void ServerConsoleContextMenu_Click(object sender, RoutedEventArgs e)
+        {
+            lkcode.hetznercloudapi.Api.Server server = this.ServerDataGrid.SelectedItem as lkcode.hetznercloudapi.Api.Server;
+
+            ServerActionResponse serverActionResponse = null;
+
+            try
+            {
+                this.AddLogMessage(string.Format("get console for server '{0}'", server.Name));
+
+                serverActionResponse = await server.RequestConsole();
+
+                ServerConsoleData consoleData = (serverActionResponse.AdditionalActionContent as ServerConsoleData);
+                string consoleUrl = consoleData.Url;
+                string consolePassword = consoleData.Password;
+
+                this.AddLogMessage(string.Format("success: get console for server '{0}'", server.Name));
+                this.AddLogMessage(string.Format("note: url is '{0}'", consoleUrl));
+                this.AddLogMessage(string.Format("note: password is '{0}'", consolePassword));
+            }
+            catch (Exception err)
+            {
+                this.AddLogMessage(string.Format("error: {0}", err.Message));
+            }
+        }
     }
 }
