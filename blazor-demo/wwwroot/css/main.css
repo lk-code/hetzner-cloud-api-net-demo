@@ -2,21 +2,22 @@
   border-width: 1px;
   border-style: solid;
 }
+.server.server-status-running, .server.server-status-initializing, .server.server-status-starting, .server.server-status-stopping, .server.server-status-off, .server.server-status-deleting, .server.server-status-migrating, .server.server-status-rebuilding, .server.server-status-unknown {
+  border-color: var(--bs-card-cap-bg);
+  box-shadow: 0 0 0.875rem 0 var(--bs-card-cap-bg);
+  background-color: var(--bs-card-cap-bg);
+}
 .server.server-status-running {
-  border-color: green;
-  box-shadow: 0 0 0.875rem 0 green;
+  --bs-card-cap-bg: rgba(0, 255, 0, .10);
 }
 .server.server-status-initializing, .server.server-status-starting, .server.server-status-stopping, .server.server-status-migrating, .server.server-status-rebuilding {
-  border-color: yellow;
-  box-shadow: 0 0 0.875rem 0 yellow;
+  --bs-card-cap-bg: rgba(255, 255, 0, .10);
 }
 .server.server-status-off, .server.server-status-deleting {
-  border-color: red;
-  box-shadow: 0 0 0.875rem 0 red;
+  --bs-card-cap-bg: rgba(255, 0, 0, .10);
 }
 .server.server-status-unknown {
-  border-color: gray;
-  box-shadow: 0 0 0.875rem 0 gray;
+  --bs-card-cap-bg: rgba(128, 128, 128, .10);
 }
 
 /*# sourceMappingURL=main.css.map */

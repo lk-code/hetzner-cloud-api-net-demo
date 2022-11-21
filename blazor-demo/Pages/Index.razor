@@ -19,12 +19,18 @@
 
                     <div class="card-body">
                         <p class="m-0">Created: @server.Created</p>
-                        <p class="m-0">Ingoing-Traffic: @server.IngoingTraffic Bytes / @server.IncludedTraffic Bytes</p>
-                        <p class="m-0">Outgoing-Traffic: @server.OutgoingTraffic Bytes / @server.IncludedTraffic Bytes</p>
+                        @*<p class="m-0">Ingoing-Traffic: @server.IngoingTraffic Bytes / @server.IncludedTraffic Bytes</p>*@
+                        @*<p class="m-0">Outgoing-Traffic: @server.OutgoingTraffic Bytes / @server.IncludedTraffic Bytes</p>*@
                     </div>
 
-                    <div class="card-footer">
-                        <p class="m-0"><small>ID: #@server.Id</small></p>
+                    <div class="card-footer pb-0">
+                        <p><small>ID: #@server.Id</small></p>
+                        <p>
+                            @foreach (var label in server.Labels)
+                            {
+                                <span class="badge text-bg-secondary me-1">@string.Format("{0}: {1}", label.Key, label.Value)</span>
+                            }
+                        </p>
                     </div>
 
                 </div>
