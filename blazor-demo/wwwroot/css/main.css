@@ -1,0 +1,22 @@
+.server {
+  border-width: 1px;
+  border-style: solid;
+}
+.server.server-status-running {
+  border-color: green;
+  box-shadow: 0 0 0.875rem 0 green;
+}
+.server.server-status-initializing, .server.server-status-starting, .server.server-status-stopping, .server.server-status-migrating, .server.server-status-rebuilding {
+  border-color: yellow;
+  box-shadow: 0 0 0.875rem 0 yellow;
+}
+.server.server-status-off, .server.server-status-deleting {
+  border-color: red;
+  box-shadow: 0 0 0.875rem 0 red;
+}
+.server.server-status-unknown {
+  border-color: gray;
+  box-shadow: 0 0 0.875rem 0 gray;
+}
+
+/*# sourceMappingURL=main.css.map */

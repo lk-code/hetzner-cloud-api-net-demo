@@ -1,0 +1,40 @@
+﻿.server {
+    border-width: 1px;
+    border-style: solid;
+
+    &.server-status-running,
+    &.server-status-initializing,
+    &.server-status-starting,
+    &.server-status-stopping,
+    &.server-status-off,
+    &.server-status-deleting,
+    &.server-status-migrating,
+    &.server-status-rebuilding,
+    &.server-status-unknown {
+    }
+
+    &.server-status-running {
+        border-color: green;
+        box-shadow: 0 0 0.875rem 0 green;
+    }
+
+    &.server-status-initializing,
+    &.server-status-starting,
+    &.server-status-stopping,
+    &.server-status-migrating,
+    &.server-status-rebuilding {
+        border-color: yellow;
+        box-shadow: 0 0 0.875rem 0 yellow;
+    }
+
+    &.server-status-off,
+    &.server-status-deleting {
+        border-color: red;
+        box-shadow: 0 0 0.875rem 0 red;
+    }
+
+    &.server-status-unknown {
+        border-color: gray;
+        box-shadow: 0 0 0.875rem 0 gray;
+    }
+}

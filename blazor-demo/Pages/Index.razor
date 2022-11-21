@@ -11,15 +11,20 @@
 
         @foreach (Server server in this._servers)
         {
-            <div class="col-6 col-lg-4 col-xl-4 col-xxl-2">
+            <div class="col-12 col-lg-6 col-xl-4 col-xxl-3">
 
                 <div class="card server server-status-@server.Status.ToString().ToLowerInvariant()">
 
-                    <div class="card-header">
-                        <h5 class="card-title mb-0">Server #@server.Id @server.Name</h5>
-                    </div>
+                    <h5 class="card-header">@server.Name <small>(@server.Status.ToString())</small></h5>
 
                     <div class="card-body">
+                        <p class="m-0">Created: @server.Created</p>
+                        <p class="m-0">Ingoing-Traffic: @server.IngoingTraffic Bytes / @server.IncludedTraffic Bytes</p>
+                        <p class="m-0">Outgoing-Traffic: @server.OutgoingTraffic Bytes / @server.IncludedTraffic Bytes</p>
+                    </div>
+
+                    <div class="card-footer">
+                        <p class="m-0"><small>ID: #@server.Id</small></p>
                     </div>
 
                 </div>
