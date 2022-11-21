@@ -1,27 +1,31 @@
 ﻿@page "/"
+@using lkcode.hetznercloudapi.Instances;
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Dashboard</PageTitle>
 
 <div class="container-fluid p-0">
 
-    <h1 class="h3 mb-3">Blank Page</h1>
+    <h1 class="h3 mb-3">Server</h1>
 
     <div class="row">
 
-        <div class="col-12">
+        @foreach (Server server in this._servers)
+        {
+            <div class="col-6 col-lg-4 col-xl-4 col-xxl-2">
 
-            <div class="card">
+                <div class="card server server-status-@server.Status.ToString().ToLowerInvariant()">
 
-                <div class="card-header">
-                    <h5 class="card-title mb-0">Empty card</h5>
-                </div>
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Server #@server.Id @server.Name</h5>
+                    </div>
 
-                <div class="card-body">
+                    <div class="card-body">
+                    </div>
+
                 </div>
 
             </div>
-
-        </div>
+        }
 
     </div>
 
