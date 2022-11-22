@@ -1,3 +1,7 @@
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .server {
   border-width: 1px;
   border-style: solid;

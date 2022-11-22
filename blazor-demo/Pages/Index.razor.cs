@@ -1,4 +1,4 @@
-﻿using lkcode.hetznercloudapi.Instances;
+﻿using lkcode.hetznercloudapi.Instances.Server;
 using lkcode.hetznercloudapi.Interfaces;
 using lkcode.hetznercloudapi.ParameterObjects.Sort;
 using Microsoft.AspNetCore.Components;
@@ -9,6 +9,8 @@ public partial class Index
 {
     [Inject]
     IServerService ServerService { get; set; } = null!;
+    [Inject]
+    NavigationManager NavigationManager { get; set; } = null!;
 
     private List<Server> _servers = new List<Server>();
 
@@ -26,5 +28,10 @@ public partial class Index
             new ServerSort(ServerSortField.NAME, SortDirection.DESC));
 
         _servers = servers.Items.ToList();
+    }
+
+    public async Task OnServerClick(Server server)
+    {
+        this.NavigationManager.NavigateTo($"/server/{server.Id}");
     }
 }

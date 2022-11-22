@@ -31,4 +31,8 @@
     <UpToDateCheckInput Remove="Styles\_components.scss" />
   </ItemGroup>
 
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Styles\Components\_cursor.scss" />
+  </ItemGroup>
+
 </Project>
