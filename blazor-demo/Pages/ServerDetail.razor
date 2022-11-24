@@ -3,4 +3,15 @@
 
 <PageTitle>Server: @Server?.Name</PageTitle>
 
-<h1>Server: #@Server?.Id - @Server?.Name</h1>
+<header>
+
+    <button type="button" class="btn btn-primary btn-sm" @onclick="() => OnHomeClick()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left align-middle me-1"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        <span class="align-middle">Back to Overview</span>
+    </button>
+
+</header>
+
+<article>
+    <h1>Server: #@Server?.Id - @Server?.Name</h1>
+</article>

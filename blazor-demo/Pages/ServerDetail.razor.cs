@@ -46,4 +46,9 @@ public partial class ServerDetail
             this.IsLoading = false;
         }
     }
+
+    public void OnHomeClick()
+    {
+        this.NavigationManager.NavigateTo("/");
+    }
 }

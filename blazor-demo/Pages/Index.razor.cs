@@ -30,7 +30,7 @@ public partial class Index
         _servers = servers.Items.ToList();
     }
 
-    public async Task OnServerClick(Server server)
+    public void OnServerClick(Server server)
     {
         this.NavigationManager.NavigateTo($"/server/{server.Id}");
     }
