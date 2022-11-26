@@ -1,0 +1,43 @@
+﻿@page "/server"
+@using lkcode.hetznercloudapi.Instances.Server;
+
+<PageTitle>Dashboard</PageTitle>
+
+<div class="container-fluid p-0">
+
+    <h1 class="h3 mb-3">Server</h1>
+
+    <div class="row">
+
+        @foreach (Server server in this._servers)
+        {
+            <div class="col-12 col-lg-6 col-xl-4 col-xxl-3">
+
+                <div class="card cursor-pointer server server-status-@server.Status.ToString().ToLowerInvariant()" @onclick="() => OnServerClick(server)">
+
+                    <h5 class="card-header">@server.Name <small>(@server.Status.ToString())</small></h5>
+
+                    <div class="card-body">
+                        <p class="m-0">Created: @server.Created</p>
+                        @*<p class="m-0">Ingoing-Traffic: @server.IngoingTraffic Bytes / @server.IncludedTraffic Bytes</p>*@
+                        @*<p class="m-0">Outgoing-Traffic: @server.OutgoingTraffic Bytes / @server.IncludedTraffic Bytes</p>*@
+                    </div>
+
+                    <div class="card-footer pb-0">
+                        <p><small>ID: #@server.Id</small></p>
+                        <p>
+                            @foreach (var label in server.Labels)
+                            {
+                                <span class="badge text-bg-secondary me-1">@string.Format("{0}: {1}", label.Key, label.Value)</span>
+                            }
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</div>

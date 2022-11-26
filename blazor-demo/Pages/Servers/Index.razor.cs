@@ -3,7 +3,7 @@ using lkcode.hetznercloudapi.Interfaces;
 using lkcode.hetznercloudapi.ParameterObjects.Sort;
 using Microsoft.AspNetCore.Components;
 
-namespace blazor_demo.Pages;
+namespace blazor_demo.Pages.Servers;
 
 public partial class Index
 {

@@ -3,9 +3,9 @@ using lkcode.hetznercloudapi.Instances.Server;
 using lkcode.hetznercloudapi.Interfaces;
 using Microsoft.AspNetCore.Components;
 
-namespace blazor_demo.Pages;
+namespace blazor_demo.Pages.Servers;
 
-public partial class ServerDetail
+public partial class Detail
 {
     [Parameter]
     public long Id { get; set; }
@@ -49,6 +49,6 @@ public partial class ServerDetail
 
     public void OnHomeClick()
     {
-        this.NavigationManager.NavigateTo("/");
+        NavigationManager.NavigateTo("/server");
     }
 }
