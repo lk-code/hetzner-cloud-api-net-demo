@@ -25,7 +25,7 @@ public partial class Index
             {
                 //new NameFilter("lk")
             },
-            new ServerSort(ServerSortField.Name, SortingDirection.DESC));
+            new Sorting<ServerSortField>(ServerSortField.Name, SortingDirection.DESC));
 
         _servers = servers.Items.ToList();
     }

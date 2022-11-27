@@ -1,6 +1,5 @@
 ﻿using lkcode.hetznercloudapi.Exceptions;
 using lkcode.hetznercloudapi.Instances.Server;
-using lkcode.hetznercloudapi.Instances.ServerActions;
 using lkcode.hetznercloudapi.Interfaces;
 using Microsoft.AspNetCore.Components;
 using Newtonsoft.Json;
@@ -70,7 +69,7 @@ public partial class Detail
             this.IsBusy = true;
 
             // load server
-            ActionResult result = await this.ServerActionsService.Shutdown(this.Server.Id);
+            lkcode.hetznercloudapi.Instances.ServerActions.ServerAction result = await this.ServerActionsService.Shutdown(this.Server.Id);
 
             this.Log(JsonConvert.SerializeObject(result), false);
             this.Log("SUCCESS - Finished");

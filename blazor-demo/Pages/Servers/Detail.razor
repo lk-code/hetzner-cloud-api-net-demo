@@ -3,27 +3,48 @@
 
 <PageTitle>Server: @Server?.Name</PageTitle>
 
-<header class="header mb-3">
+<div class="container">
 
-    <button type="button" class="btn btn-primary btn-sm" @onclick="() => OnHomeClick()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left align-middle me-1"><polyline points="15 18 9 12 15 6"></polyline></svg>
-        <span class="align-middle">Back to Overview</span>
-    </button>
+    <div class="col-12">
 
-</header>
+        <header class="header mb-3">
 
-<article>
-    <h1>Server: #@Server?.Id - @Server?.Name</h1>
+            <button type="button" class="btn btn-primary btn-sm" @onclick="() => OnHomeClick()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left align-middle me-1"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                <span class="align-middle">Back to Overview</span>
+            </button>
 
-    <section class="server-actions-bar mb-3">
-        <button type="button" class="btn btn-danger btn-sm" @onclick="() => OnServerShutdownClick()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-power align-middle me-2"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path><line x1="12" y1="2" x2="12" y2="12"></line></svg>
-            <span class="align-middle">Shutdown</span>
-        </button>
-    </section>
+        </header>
 
-</article>
+    </div>
 
-<footer>
-    <textarea class="log-container">@LogStringBuilder.ToString()</textarea>
-</footer>
+    <div class="col-12 col-md-8">
+
+        <article>
+
+            <h1>Server: #@Server?.Id - @Server?.Name</h1>
+
+            <section class="server-actions-bar mb-3">
+                <button type="button" class="btn btn-danger btn-sm" @onclick="() => OnServerShutdownClick()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-power align-middle me-2"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path><line x1="12" y1="2" x2="12" y2="12"></line></svg>
+                    <span class="align-middle">Shutdown</span>
+                </button>
+            </section>
+
+        </article>
+
+    </div>
+
+    <div class="col-12 col-md-4">
+    </div>
+
+    <div class="col-12">
+
+        <footer>
+            <textarea class="log-container">@LogStringBuilder.ToString()</textarea>
+        </footer>
+
+    </div>
+
+</div>
+
