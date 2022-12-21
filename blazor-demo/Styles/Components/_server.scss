@@ -1,0 +1,39 @@
+﻿.server {
+    border-width: 1px;
+    border-style: solid;
+
+    &.server-status-running,
+    &.server-status-initializing,
+    &.server-status-starting,
+    &.server-status-stopping,
+    &.server-status-off,
+    &.server-status-deleting,
+    &.server-status-migrating,
+    &.server-status-rebuilding,
+    &.server-status-unknown {
+        border-color: var(--bs-card-cap-bg);
+        box-shadow: 0 0 0.875rem 0 var(--bs-card-cap-bg);
+        background-color: var(--bs-card-cap-bg);
+    }
+
+    &.server-status-running {
+        --bs-card-cap-bg: rgba(0, 255, 0, .10);
+    }
+
+    &.server-status-initializing,
+    &.server-status-starting,
+    &.server-status-stopping,
+    &.server-status-migrating,
+    &.server-status-rebuilding {
+        --bs-card-cap-bg: rgba(255, 255, 0, .10);
+    }
+
+    &.server-status-off,
+    &.server-status-deleting {
+        --bs-card-cap-bg: rgba(255, 0, 0, .10);
+    }
+
+    &.server-status-unknown {
+        --bs-card-cap-bg: rgba(128, 128, 128, .10);
+    }
+}
