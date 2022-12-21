@@ -34,4 +34,9 @@ public partial class Index
     {
         this.NavigationManager.NavigateTo($"/server/{server.Id}");
     }
+
+    public void OnAddServerClick()
+    {
+
+    }
 }

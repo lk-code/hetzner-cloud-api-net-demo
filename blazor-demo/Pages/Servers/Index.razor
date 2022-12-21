@@ -9,6 +9,23 @@
 
     <div class="row">
 
+        <div class="col-12">
+
+            <header class="header mb-3">
+
+                <button type="button" class="btn btn-primary btn-sm" @onclick="() => OnAddServerClick()">
+                    <i class="bi bi-plus-lg me-2"></i>
+                    <span class="align-middle">Add server</span>
+                </button>
+
+            </header>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+
         @foreach (Server server in this._servers)
         {
             <div class="col-12 col-lg-6 col-xl-4 col-xxl-3">
