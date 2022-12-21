@@ -15,6 +15,8 @@ the project is a .NET Standard 2.0 Library and can be used in the most projects 
 
 [![License](https://img.shields.io/github/license/lk-code/hetzner-cloud-api-net.svg?style=flat-square)](https://github.com/lk-code/hetzner-cloud-api-net/blob/master/LICENSE)
 
+<a href="https://www.buymeacoffee.com/lk.code" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
 ### demo
 
 download the repository and open the visual studio project solution. you will find different projects for WPF, UWP, etc.
