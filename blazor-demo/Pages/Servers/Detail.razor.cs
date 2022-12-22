@@ -21,6 +21,13 @@ public partial class Detail : IDisposable
     NavigationManager NavigationManager { get; set; } = null!;
 
     private CancellationTokenSource _cancellationToken = new CancellationTokenSource();
+    public Dictionary<string, string> Breadcrumbs = new Dictionary<string, string>()
+    {
+        { "/", "Übersicht" },
+        { "/server", "Server" },
+        { "/server/add", "Add Server" },
+    };
+
     private bool IsBusy { get; set; } = false;
     private StringBuilder LogStringBuilder { get; set; } = new();
     private Server Server { get; set; } = null!;

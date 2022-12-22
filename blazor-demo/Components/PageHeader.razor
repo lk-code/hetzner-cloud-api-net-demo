@@ -7,14 +7,19 @@
             <h1 class="page-heading">@Title</h1>
         </div>
 
-        <div class="col-sm-5 text-right hidden-xs">
-            <ol class="breadcrumb push-10-t">
-                <li>Generic</li>
-                <li>
-                    <a class="link-effect" href="">Search Results</a>
-                </li>
-            </ol>
-        </div>
+        @if (Breadcrumbs != null && Breadcrumbs.Count() > 0)
+        {
+            <div class="col-sm-5 text-right hidden-xs">
+                <ol class="breadcrumb push-10-t">
+                    @foreach (var link in Breadcrumbs)
+                    {
+                        <li>
+                            <a class="link-effect" href="@link.Key">@link.Value</a>
+                        </li>
+                    }
+                </ol>
+            </div>
+        }
 
     </div>
 

@@ -14,6 +14,11 @@ public partial class Index : IDisposable
     [Inject]
     NavigationManager NavigationManager { get; set; } = null!;
 
+    public Dictionary<string, string> Breadcrumbs = new Dictionary<string, string>()
+    {
+        { "/", "Übersicht" },
+        { "/server", "Server" }
+    };
     private CancellationTokenSource _cancellationToken = new CancellationTokenSource();
     private List<Server> _servers = new List<Server>();
 

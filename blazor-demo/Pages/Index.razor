@@ -1,4 +1,60 @@
 ﻿@page "/"
 
 <PageTitle>Hetzner Cloud Overview</PageTitle>
-<PageHeader Title="Hetzner Cloud Overview"></PageHeader>
+<PageHeader Title="Hetzner Cloud Overview"
+            Breadcrumbs="@Breadcrumbs" />
+
+<div class="content">
+
+    <h2 class="content-heading">Server</h2>
+
+    <div class="row">
+
+        <div class="col-sm-4 col-lg-2">
+
+            <VerticalWidget Link="/server"
+                            Icon="si si-layers"
+                            Title="Server Overview" />
+
+        </div>
+
+    </div>
+
+    <h2 class="content-heading">Widgets Demo (for ui development)</h2>
+
+    <div class="row">
+
+        <div class="col-sm-4 col-lg-2">
+
+            <VerticalWidget Link="/server"
+                            Image="img/avatars/avatar5.jpg"
+                            Title="All Server"
+                            Label="Server" />
+
+        </div>
+
+        <div class="col-sm-4 col-lg-2">
+
+            <VerticalWidget Link="/server"
+                            Icon="si si-badge"
+                            Title="Server"
+                            Label="Server"
+                            AdditionalInfoLeftIcon="si si-badge"
+                            AdditionalInfoLeftText="9 badges"
+                            AdditionalInfoRightIcon="si si-wallet"
+                            AdditionalInfoRightText="$ 3.100" />
+
+        </div>
+
+        <div class="col-sm-4 col-lg-2">
+
+            <VerticalWidget Link="/server"
+                            Icon="si si-badge"
+                            Title="Server"
+                            Label="Server" />
+
+        </div>
+
+    </div>
+
+</div>

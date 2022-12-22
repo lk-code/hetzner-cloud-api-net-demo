@@ -1,0 +1,46 @@
+﻿<a class="block block-link-hover3" href="@Link">
+
+    <div class="block-content block-content-full text-center">
+        @if (!string.IsNullOrEmpty(Image))
+        {
+            <div>
+                <img class="img-avatar img-avatar96" src="@Image" alt="">
+            </div>
+        }
+        else if (!string.IsNullOrEmpty(Icon))
+        {
+            <div>
+                <i class="@Icon fa-5x"></i>
+            </div>
+        }
+
+        <div class="h5 push-15-t push-5">@Title</div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Label))
+    {
+        <div class="block-content block-content-mini block-content-full bg-gray-lighter">
+            <div class="text-center text-muted">@Label</div>
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(AdditionalInfoLeftIcon)
+         || !string.IsNullOrEmpty(AdditionalInfoLeftText)
+         || !string.IsNullOrEmpty(AdditionalInfoRightIcon)
+         || !string.IsNullOrEmpty(AdditionalInfoRightText))
+    {
+        <div class="block-content">
+            <div class="row items-push text-center">
+                <div class="col-xs-6">
+                    <div class="push-5"><i class="@AdditionalInfoLeftIcon fa-2x"></i></div>
+                    <div class="h5 font-w300 text-muted">@AdditionalInfoLeftText</div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="push-5"><i class="@AdditionalInfoRightIcon fa-2x"></i></div>
+                    <div class="h5 font-w300 text-muted">@AdditionalInfoRightText</div>
+                </div>
+            </div>
+        </div>
+    }
+
+</a>
