@@ -330,3 +330,5 @@ ASALocalRun/
 .mfractor/
 
 blazor-demo/appsettings.Development.json
+
+.DS_Store
