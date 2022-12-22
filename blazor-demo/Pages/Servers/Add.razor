@@ -1,0 +1,44 @@
+﻿@page "/server/add"
+
+<PageTitle>Add Server</PageTitle>
+
+<div class="container-fluid p-0">
+
+    <div class="row">
+
+        <div class="col-12">
+
+            <h1 class="mb-3">Add Server</h1>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-12">
+
+            <section class="server-actions-bar mb-3">
+                <button type="button" class="btn btn-primary btn-sm" @onclick="() => OnCreateServerClick()">
+                    <i class="bi bi-plus-circle me-2"></i>
+                    <span class="align-middle">Create Server</span>
+                </button>
+            </section>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-12">
+
+            <footer>
+                <textarea class="log-container">@LogStringBuilder.ToString()</textarea>
+            </footer>
+
+        </div>
+
+    </div>
+
+</div>

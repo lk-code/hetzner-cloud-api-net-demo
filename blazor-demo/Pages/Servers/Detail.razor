@@ -26,18 +26,14 @@
 
         <div class="col-12 col-md-8">
 
-            <article>
+            <h1 class="mb-3">Server: #@Server?.Id - @Server?.Name</h1>
 
-                <h1>Server: #@Server?.Id - @Server?.Name</h1>
-
-                <section class="server-actions-bar mb-3">
-                    <button type="button" class="btn btn-danger btn-sm" @onclick="() => OnServerShutdownClick()">
-                        <i class="bi bi-trash3 me-2"></i>
-                        <span class="align-middle">Shutdown</span>
-                    </button>
-                </section>
-
-            </article>
+            <section class="server-actions-bar mb-3">
+                <button type="button" class="btn btn-danger btn-sm" @onclick="() => OnServerShutdownClick()">
+                    <i class="bi bi-trash3 me-2"></i>
+                    <span class="align-middle">Shutdown</span>
+                </button>
+            </section>
 
         </div>
 

@@ -2,6 +2,7 @@
 using lkcode.hetznercloudapi.Interfaces;
 using lkcode.hetznercloudapi.ParameterObjects.Sort;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Hosting.Server;
 
 namespace blazor_demo.Pages.Servers;
 
@@ -37,6 +38,6 @@ public partial class Index
 
     public void OnAddServerClick()
     {
-
+        this.NavigationManager.NavigateTo($"/server/add");
     }
 }
