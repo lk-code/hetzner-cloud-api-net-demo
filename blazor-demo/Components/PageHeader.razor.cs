@@ -1,0 +1,10 @@
+﻿using System;
+using Microsoft.AspNetCore.Components;
+
+namespace blazor_demo.Components;
+
+public partial class PageHeader
+{
+    [Parameter]
+    public string Title { get; set; } = "";
+}

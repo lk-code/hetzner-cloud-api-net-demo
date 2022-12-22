@@ -39,4 +39,12 @@
     <UpToDateCheckInput Remove="Styles\Components\_log.scss" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Components\" />
+    <None Remove="Pages\Servers\Index.razor.css.map" />
+    <None Remove="Pages\Servers\Index.razor.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Components\" />
+  </ItemGroup>
 </Project>
