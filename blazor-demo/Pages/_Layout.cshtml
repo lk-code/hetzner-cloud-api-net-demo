@@ -19,9 +19,21 @@
 
     <title>Hetzner Cloud .NET Demo App</title>
 
-    <link href="css/app.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    
+    <!-- Stylesheets -->
+    <!-- Web fonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
+
+    <!-- Page JS Plugins CSS -->
+    <link rel="stylesheet" href="js/plugins/slick/slick.min.css">
+    <link rel="stylesheet" href="js/plugins/slick/slick-theme.min.css">
+
+    <!-- OneUI CSS framework -->
+    <link rel="stylesheet" id="css-main" href="css/oneui.css">
+
+    <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
+    <!-- <link rel="stylesheet" id="css-theme" href="css/themes/flat.min.css"> -->
+    <!-- END Stylesheets -->
+
     <link href="css/site.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
     <link href="blazor-demo.styles.css" rel="stylesheet" />
@@ -47,6 +59,28 @@
 
     <script src="_framework/blazor.server.js"></script>
     <script src="js/app.js"></script>
+
+    <!-- OneUI Core JS: jQuery, Bootstrap, slimScroll, scrollLock, Appear, CountTo, Placeholder, Cookie and App.js -->
+    <script src="js/core/jquery.min.js"></script>
+    <script src="js/core/bootstrap.min.js"></script>
+    <script src="js/core/jquery.slimscroll.min.js"></script>
+    <script src="js/core/jquery.scrollLock.min.js"></script>
+    <script src="js/core/jquery.appear.min.js"></script>
+    <script src="js/core/jquery.countTo.min.js"></script>
+    <script src="js/core/jquery.placeholder.min.js"></script>
+    <script src="js/core/js.cookie.min.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- Page Plugins -->
+    <script src="js/plugins/slick/slick.min.js"></script>
+    <script src="js/plugins/chartjs/Chart.min.js"></script>
+
+    <!-- Page JS Code -->
+    <script src="js/pages/base_pages_dashboard.js"></script>
+    <script>$(function () {
+            // Init page helpers (Slick Slider plugin)
+            App.initHelpers('slick');
+        });</script>
 </body>
 
 </html>

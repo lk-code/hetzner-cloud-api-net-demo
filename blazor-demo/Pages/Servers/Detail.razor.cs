@@ -1,5 +1,6 @@
 ﻿using lkcode.hetznercloudapi.Exceptions;
 using lkcode.hetznercloudapi.Instances.Server;
+using lkcode.hetznercloudapi.Instances.ServerActions;
 using lkcode.hetznercloudapi.Interfaces;
 using Microsoft.AspNetCore.Components;
 using Newtonsoft.Json;
@@ -7,7 +8,7 @@ using System.Text;
 
 namespace blazor_demo.Pages.Servers;
 
-public partial class Detail
+public partial class Detail : IDisposable
 {
     [Parameter]
     public long Id { get; set; }
@@ -19,9 +20,21 @@ public partial class Detail
     [Inject]
     NavigationManager NavigationManager { get; set; } = null!;
 
+    private CancellationTokenSource _cancellationToken = new CancellationTokenSource();
     private bool IsBusy { get; set; } = false;
     private StringBuilder LogStringBuilder { get; set; } = new();
     private Server Server { get; set; } = null!;
+
+    public void Dispose()
+    {
+        this._cancellationToken?.Cancel();
+        this._cancellationToken?.Dispose();
+    }
+
+    private void Log(string message, bool displayDate = true)
+    {
+        this.LogStringBuilder.AppendLine($"{((displayDate) ? DateTime.Now.ToLongTimeString() + " - " : "")}{message}");
+    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -33,7 +46,8 @@ public partial class Detail
             this.IsBusy = true;
 
             // load server
-            Server server = await this.ServerService.GetByIdAsync(this.Id);
+            Server server = await this.ServerService.GetByIdAsync(this.Id,
+                this._cancellationToken.Token);
 
             this.Server = server;
             this.Log("SUCCESS - Finished");
@@ -69,7 +83,8 @@ public partial class Detail
             this.IsBusy = true;
 
             // load server
-            lkcode.hetznercloudapi.Instances.ServerActions.ServerAction result = await this.ServerActionsService.Shutdown(this.Server.Id);
+            ServerAction result = await this.ServerActionsService.ShutdownAsync(this.Server.Id,
+                this._cancellationToken.Token);
 
             this.Log(JsonConvert.SerializeObject(result), false);
             this.Log("SUCCESS - Finished");
@@ -84,10 +99,5 @@ public partial class Detail
         {
             this.IsBusy = false;
         }
-    }
-
-    private void Log(string message, bool displayDate = true)
-    {
-        this.LogStringBuilder.AppendLine($"{((displayDate) ? DateTime.Now.ToLongTimeString() + " - " : "")}{message}");
     }
 }

@@ -7,17 +7,29 @@ using Microsoft.AspNetCore.Components;
 
 namespace blazor_demo.Pages.Servers;
 
-public partial class Add
+public partial class Add : IDisposable
 {
     [Inject]
     IServerService ServerService { get; set; } = null!;
 
+    private CancellationTokenSource _cancellationToken = new CancellationTokenSource();
     private bool IsBusy { get; set; } = false;
     private StringBuilder LogStringBuilder { get; set; } = new();
+
+    public void Dispose()
+    {
+        this._cancellationToken?.Cancel();
+        this._cancellationToken?.Dispose();
+    }
 
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
+    }
+
+    private void Log(string message, bool displayDate = true)
+    {
+        this.LogStringBuilder.AppendLine($"{((displayDate) ? DateTime.Now.ToLongTimeString() + " - " : "")}{message}");
     }
 
     public async Task OnCreateServerClick()
@@ -39,7 +51,7 @@ public partial class Add
         long? placementGroup = null;
         string? userData = null;
 
-        await this.ServerService.Create(name,
+        await this.ServerService.CreateAsync(name,
             image,
             serverType,
             datacenter,
@@ -54,11 +66,6 @@ public partial class Add
             firewalls,
             placementGroup,
             userData,
-            CancellationToken.None);
-    }
-
-    private void Log(string message, bool displayDate = true)
-    {
-        this.LogStringBuilder.AppendLine($"{((displayDate) ? DateTime.Now.ToLongTimeString() + " - " : "")}{message}");
+            this._cancellationToken.Token);
     }
 }
