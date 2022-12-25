@@ -1,25 +1,29 @@
 ﻿<!-- Page Header -->
 <div class="content bg-gray-lighter">
 
-    <div class="row items-push">
+    <div class="container-fluid">
 
-        <div class="col-sm-7">
-            <h1 class="page-heading">@Title</h1>
-        </div>
+        <div class="row items-push">
 
-        @if (Breadcrumbs != null && Breadcrumbs.Count() > 0)
-        {
-            <div class="col-sm-5 text-right hidden-xs">
-                <ol class="breadcrumb push-10-t">
-                    @foreach (var link in Breadcrumbs)
-                    {
-                        <li>
-                            <a class="link-effect" href="@link.Key">@link.Value</a>
-                        </li>
-                    }
-                </ol>
+            <div class="col-sm-7">
+                <h1 class="page-heading">@Title</h1>
             </div>
-        }
+
+            @if (Breadcrumbs != null && Breadcrumbs.Count() > 0)
+            {
+                <div class="col-sm-5 text-right hidden-xs">
+                    <ol class="breadcrumb push-10-t">
+                        @foreach (var link in Breadcrumbs)
+                        {
+                            <li>
+                                <a class="link-effect" href="@link.Key">@link.Value</a>
+                            </li>
+                        }
+                    </ol>
+                </div>
+            }
+
+        </div>
 
     </div>
 

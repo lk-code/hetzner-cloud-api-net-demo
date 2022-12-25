@@ -1,0 +1,20 @@
+﻿<div class="block block-themed block-rounded block-bordered @string.Format(this.@class)" @onclick="() => OnClickCallback.InvokeAsync()">
+
+    <div class="block-header @HeaderBackgroundClass">
+        <h3 class="block-title">
+            @((MarkupString)Title)
+            @if (!string.IsNullOrEmpty(AdditionalTitle))
+            {
+                <small class="block-additional-title">@AdditionalTitle</small>
+            }
+        </h3>
+    </div>
+
+    @if (ChildContent != null)
+    {
+        <div class="block-content">
+            @ChildContent
+        </div>
+    }
+
+</div>
