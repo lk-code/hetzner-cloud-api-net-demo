@@ -3,34 +3,71 @@
 @for $i from 0 through 5 {
 
     .m-#{$i} {
-        margin: $spacer * ($i * 0.25);
+        margin: $spacer * ($i * 0.25) !important;
     }
 }
 
 @for $i from 0 through 5 {
 
     .ms-#{$i} {
-        margin-left: $spacer * ($i * 0.25);
+        margin-left: $spacer * ($i * 0.25) !important;
     }
 }
 
 @for $i from 0 through 5 {
 
     .mt-#{$i} {
-        margin-top: $spacer * ($i * 0.25);
+        margin-top: $spacer * ($i * 0.25) !important;
     }
 }
 
 @for $i from 0 through 5 {
 
     .me-#{$i} {
-        margin-right: $spacer * ($i * 0.25);
+        margin-right: $spacer * ($i * 0.25) !important;
     }
 }
 
 @for $i from 0 through 5 {
 
     .mb-#{$i} {
-        margin-bottom: $spacer * ($i * 0.25);
+        margin-bottom: $spacer * ($i * 0.25) !important;
+    }
+}
+
+$spacer: 16px;
+
+@for $i from 0 through 5 {
+
+    .p-#{$i} {
+        padding: $spacer * ($i * 0.25) !important;
+    }
+}
+
+@for $i from 0 through 5 {
+
+    .ps-#{$i} {
+        padding-left: $spacer * ($i * 0.25) !important;
+    }
+}
+
+@for $i from 0 through 5 {
+
+    .pt-#{$i} {
+        padding-top: $spacer * ($i * 0.25) !important;
+    }
+}
+
+@for $i from 0 through 5 {
+
+    .pe-#{$i} {
+        padding-right: $spacer * ($i * 0.25) !important;
+    }
+}
+
+@for $i from 0 through 5 {
+
+    .pb-#{$i} {
+        padding-bottom: $spacer * ($i * 0.25) !important;
     }
 }
