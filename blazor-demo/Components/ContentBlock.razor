@@ -1,4 +1,5 @@
-﻿<div class="block block-themed block-rounded block-bordered @string.Format(this.@class)" @onclick="() => OnClickCallback.InvokeAsync()">
+﻿<div class="block block-rounded block-bordered @string.Format(this.@class)"
+     @onclick="() => OnClickCallback.InvokeAsync()">
 
     <div class="block-header @HeaderBackgroundClass">
         <h3 class="block-title">
@@ -12,7 +13,7 @@
 
     @if (ChildContent != null)
     {
-        <div class="block-content">
+        <div class="block-content pb-5">
             @ChildContent
         </div>
     }

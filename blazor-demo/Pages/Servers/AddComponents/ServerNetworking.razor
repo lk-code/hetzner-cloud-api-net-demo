@@ -1,0 +1,28 @@
+﻿<ContentBlock Title="Server Networking">
+
+    <section class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-xs-12">
+                @if (!string.IsNullOrEmpty(AbortButtonText))
+                {
+                    <button class="btn btn-danger me-5"
+                            @onclick="() => OnAbortClicked.InvokeAsync()">
+                        @AbortButtonText
+                    </button>
+                }
+                @if (!string.IsNullOrEmpty(ContinueButtonText))
+                {
+                    <button class="btn btn-success"
+                            @onclick="() => OnContinueClicked.InvokeAsync()">
+                        @ContinueButtonText
+                    </button>
+                }
+            </div>
+
+        </div>
+
+    </section>
+
+</ContentBlock>

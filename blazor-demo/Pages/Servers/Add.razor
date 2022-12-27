@@ -1,41 +1,165 @@
 ﻿@page "/server/add"
 
+@using System.Globalization
+@using blazor_demo.Pages.Servers.AddComponents
+
 <PageTitle>hcloud.net | New Server</PageTitle>
+<PageHeader Title="New Server"
+            Breadcrumbs="@Breadcrumbs" />
 
-<div class="container-fluid p-0">
+<div class="content">
 
-    <div class="row">
+    <div class="container-fluid">
 
-        <div class="col-12">
+        <div class="row">
 
-            <h1 class="mb-3">Add Server</h1>
+            <div class="col-xs-12">
+
+                <ActionBar>
+
+                    @*<button type="button" class="btn btn-primary btn-sm"
+                                @onclick="() => OnCreateServerClicked()">
+                            <i class="bi bi-plus-circle me-2"></i>
+                            <span class="align-middle">Create Server</span>
+                        </button>*@
+
+                </ActionBar>
+
+            </div>
 
         </div>
 
-    </div>
+        <div class="row">
 
-    <div class="row">
+            <div class="col-xs-12">
 
-        <div class="col-12">
+                <WizardContainer>
 
-            <section class="server-actions-bar mb-3">
-                <button type="button" class="btn btn-primary btn-sm" @onclick="() => OnCreateServerClick()">
-                    <i class="bi bi-plus-circle me-2"></i>
-                    <span class="align-middle">Create Server</span>
-                </button>
-            </section>
+                    <WizardSidebar>
+                        @foreach (var step in _steps)
+                        {
+                            <WizardSidebarItem Title="@step.Name"
+                                               IconClass="@step.Icon"
+                                               ContentClass="@string.Format($"{((_finishedSteps.Contains(step.Key)) ? "bg-primary" : "")} {((_currentStep == step.Key) ? "bg-flat" : "")}")" />
+                        }
+                    </WizardSidebar>
+
+                    <WizardContent>
+                        @switch (_currentStep)
+                        {
+                            case "location":
+                                {
+                                    <ServerLocation ContinueButtonText="Next"
+                                                    @ref="@ServerLocationElement"
+                                                    OnContinueClicked="() => NextStepClicked()" />
+                                }
+                                break;
+                            case "os-image":
+                                {
+                                    <ServerOsImage AbortButtonText="Back"
+                                                   ContinueButtonText="Next"
+                                                   OnAbortClicked="() => LastStepClicked()"
+                                                   OnContinueClicked="() => NextStepClicked()" />
+                                }
+                                break;
+                            case "type":
+                                {
+                                    <ServerType AbortButtonText="Back"
+                                                ContinueButtonText="Next"
+                                                OnAbortClicked="() => LastStepClicked()"
+                                                OnContinueClicked="() => NextStepClicked()" />
+                                }
+                                break;
+                            case "networking":
+                                {
+                                    <ServerNetworking AbortButtonText="Back"
+                                                      ContinueButtonText="Next"
+                                                      OnAbortClicked="() => LastStepClicked()"
+                                                      OnContinueClicked="() => NextStepClicked()" />
+                                }
+                                break;
+                            case "ssh":
+                                {
+                                    <ServerSsh AbortButtonText="Back"
+                                               ContinueButtonText="Next"
+                                               OnAbortClicked="() => LastStepClicked()"
+                                               OnContinueClicked="() => NextStepClicked()" />
+                                }
+                                break;
+                            case "volumes":
+                                {
+                                    <ServerVolumes AbortButtonText="Back"
+                                                   ContinueButtonText="Next"
+                                                   OnAbortClicked="() => LastStepClicked()"
+                                                   OnContinueClicked="() => NextStepClicked()" />
+                                }
+                                break;
+                            case "firewalls":
+                                {
+                                    <ServerFirewalls AbortButtonText="Back"
+                                                     ContinueButtonText="Next"
+                                                     OnAbortClicked="() => LastStepClicked()"
+                                                     OnContinueClicked="() => NextStepClicked()" />
+                                }
+                                break;
+                            case "backups":
+                                {
+                                    <ServerBackups AbortButtonText="Back"
+                                                   ContinueButtonText="Next"
+                                                   OnAbortClicked="() => LastStepClicked()"
+                                                   OnContinueClicked="() => NextStepClicked()" />
+                                }
+                                break;
+                            case "placement-groups":
+                                {
+                                    <ServerPlacementGroups AbortButtonText="Back"
+                                                           ContinueButtonText="Next"
+                                                           OnAbortClicked="() => LastStepClicked()"
+                                                           OnContinueClicked="() => NextStepClicked()" />
+                                }
+                                break;
+                            case "labels":
+                                {
+                                    <ServerLabels AbortButtonText="Back"
+                                                  ContinueButtonText="Next"
+                                                  OnAbortClicked="() => LastStepClicked()"
+                                                  OnContinueClicked="() => NextStepClicked()" />
+                                }
+                                break;
+                            case "cloud-config":
+                                {
+                                    <ServerCloudConfig AbortButtonText="Back"
+                                                       ContinueButtonText="Next"
+                                                       OnAbortClicked="() => LastStepClicked()"
+                                                       OnContinueClicked="() => NextStepClicked()" />
+                                }
+                                break;
+                            case "name":
+                                {
+                                    <ServerName AbortButtonText="Back"
+                                                ContinueButtonText="Create Server"
+                                                OnAbortClicked="() => LastStepClicked()"
+                                                OnContinueClicked="() => OnCreateServerClicked()" />
+                                }
+                                break;
+                        }
+                    </WizardContent>
+
+                </WizardContainer>
+
+            </div>
 
         </div>
 
-    </div>
+        <div class="row">
 
-    <div class="row">
+            <div class="col-xs-12">
 
-        <div class="col-12">
+                <footer>
+                    <textarea class="log-container">@LogStringBuilder.ToString()</textarea>
+                </footer>
 
-            <footer>
-                <textarea class="log-container">@LogStringBuilder.ToString()</textarea>
-            </footer>
+            </div>
 
         </div>
 

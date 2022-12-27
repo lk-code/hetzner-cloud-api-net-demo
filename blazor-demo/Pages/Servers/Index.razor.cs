@@ -16,7 +16,7 @@ public partial class Index : IDisposable
 
     public Dictionary<string, string> Breadcrumbs = new Dictionary<string, string>()
     {
-        { "/", "Übersicht" },
+        { "/", "Overview" },
         { "/server", "Server" }
     };
     private CancellationTokenSource _cancellationToken = new CancellationTokenSource();

@@ -1,0 +1,8 @@
+.wizard-aside-item .bg-primary span,
+.wizard-aside-item .bg-primary i,
+.wizard-aside-item .bg-flat span,
+.wizard-aside-item .bg-flat i {
+  color: #fff;
+}
+
+/*# sourceMappingURL=WizardSidebarItem.razor.css.map */

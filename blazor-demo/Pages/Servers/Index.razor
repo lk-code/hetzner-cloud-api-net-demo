@@ -37,14 +37,14 @@
 
                     <ContentBlock Title="@server.Name"
                                   AdditionalTitle="@server.Status.ToString()"
-                                  HeaderBackgroundClass="@server.Status.ToColorClass()"
-                                  class="cursor-pointer"
+                                  HeaderBackgroundClass="@string.Format($"{server.Status.ToColorClass()}")"
+                                  class="block-themed cursor-pointer"
                                   OnClickCallback="() => OnServerClick(server)">
-                        <p>ID: #@server.Id</p>
-                        <p>Created: @server.Created</p>
+                        <p class="m-0">ID: #@server.Id</p>
+                        <p class="m-0">Created: @server.Created</p>
                         @*<p class="m-0">Ingoing-Traffic: @server.IngoingTraffic Bytes / @server.IncludedTraffic Bytes</p>*@
                         @*<p class="m-0">Outgoing-Traffic: @server.OutgoingTraffic Bytes / @server.IncludedTraffic Bytes</p>*@
-                        <p>
+                        <p class="m-0">
                             @foreach (var label in server.Labels)
                             {
                                 <span class="badge text-bg-secondary me-1">

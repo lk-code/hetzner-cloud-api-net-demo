@@ -1,0 +1,20 @@
+﻿<div class="wizard-aside-item block m-0 mb-1"
+     @onclick="() => OnClickCallback.InvokeAsync()">
+
+    <div class="block-content block-content-full clearfix @string.Format($"{ContentClass}")">
+
+        @if (!string.IsNullOrEmpty(IconClass))
+        {
+            <i class="@IconClass fa-2x text-muted pull-right"></i>
+        }
+
+        @if (!string.IsNullOrEmpty(StepIndex))
+        {
+            <span class="h4 font-w700">@StepIndex</span>
+        }
+
+        <span class="h4 text-muted">@Title</span>
+
+    </div>
+
+</div>
