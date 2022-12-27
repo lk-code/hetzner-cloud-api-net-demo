@@ -3,55 +3,44 @@
 
 <PageTitle>hcloud.net | Server: @Server?.Name</PageTitle>
 
-<PageHeader Title="Server"
+<PageHeader Title="@string.Format($"Server: #{Server?.Id} - {Server?.Name}")"
             Breadcrumbs="@Breadcrumbs" />
 
-<div class="container-fluid p-0">
+<div class="content">
 
-    <div class="row">
+    <div class="container-fluid">
 
-        <div class="col-12">
+        <div class="row">
 
-            <header class="header mb-3">
+            <div class="col-xs-12">
 
-                <button type="button" class="btn btn-primary btn-sm" @onclick="() => OnHomeClick()">
-                    <i class="bi bi-house me-2"></i>
-                    <span class="align-middle">Back to Overview</span>
-                </button>
+                <ActionBar>
 
-            </header>
+                    <button type="button" class="btn btn-primary btn-sm" @onclick="() => OnHomeClick()">
+                        <i class="bi bi-house me-2"></i>
+                        <span class="align-middle">Back to Overview</span>
+                    </button>
 
-        </div>
+                    <button type="button" class="btn btn-danger btn-sm" @onclick="() => OnServerShutdownClick()">
+                        <i class="bi bi-trash3 me-2"></i>
+                        <span class="align-middle">Shutdown</span>
+                    </button>
 
-    </div>
+                </ActionBar>
 
-    <div class="row">
-
-        <div class="col-12 col-md-8">
-
-            <h1 class="mb-3">Server: #@Server?.Id - @Server?.Name</h1>
-
-            <section class="server-actions-bar mb-3">
-                <button type="button" class="btn btn-danger btn-sm" @onclick="() => OnServerShutdownClick()">
-                    <i class="bi bi-trash3 me-2"></i>
-                    <span class="align-middle">Shutdown</span>
-                </button>
-            </section>
+            </div>
 
         </div>
 
-        <div class="col-12 col-md-4">
-        </div>
+        <div class="row">
 
-    </div>
+            <div class="col-xs-12">
 
-    <div class="row">
+                <footer>
+                    <textarea class="log-container">@LogStringBuilder.ToString()</textarea>
+                </footer>
 
-        <div class="col-12">
-
-            <footer>
-                <textarea class="log-container">@LogStringBuilder.ToString()</textarea>
-            </footer>
+            </div>
 
         </div>
 

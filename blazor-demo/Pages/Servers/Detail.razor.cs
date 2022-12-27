@@ -25,7 +25,7 @@ public partial class Detail : IDisposable
     {
         { "/", "Übersicht" },
         { "/server", "Server" },
-        { "/server/add", "Add Server" },
+        { "/server/:id", "Server Detail" },
     };
 
     private bool IsBusy { get; set; } = false;

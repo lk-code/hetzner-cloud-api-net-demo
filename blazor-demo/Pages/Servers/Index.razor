@@ -33,7 +33,7 @@
 
             @foreach (Server server in this._servers)
             {
-                <div class="col-xs-12 col-lg-6 col-xl-4 col-xxl-3">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 
                     <ContentBlock Title="@server.Name"
                                   AdditionalTitle="@server.Status.ToString()"
@@ -53,10 +53,6 @@
                             }
                         </p>
                     </ContentBlock>
-
-                    <div class="card cursor-pointer server server-status-@server.Status.ToString().ToLowerInvariant()" @onclick="() => OnServerClick(server)">
-
-                    </div>
 
                 </div>
             }
